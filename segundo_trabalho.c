@@ -66,16 +66,11 @@ void formatar_maiuscula(string str);
 int gerar_leitura(int numero_max, int numero_min);
 void limpar_tela(void);
 void voltar_menu(void);
-//Arquivos:
 void salvar_dados_bin(sensor_t *lista_sen, setor_t *lista_set);
 void carregar_dados_bin(sensor_t **lista_sen, setor_t **lista_set);
 void exportar_html(sensor_t *lista_sen, setor_t *lista_set);
 int opcao_arquivo(void);
 void nome_arquivo(char *nome_arq);
-
-//funçao recursiva
-//csv
-//makefile
 
 int main()
 {
