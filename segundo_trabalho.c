@@ -997,6 +997,7 @@ void excluir_sensor(sensor_t *lista_sen, setor_t *lista_set)
     printf("Digite o ID do setor onde o sensor será removido:\n");
     printf(":::: ");
     scanf("%i", &id_setor);
+    getchar();
 
     for (setor_t *setor = lista_set; setor != NULL; setor = setor->proximo) {
         if (setor->id == id_setor) {
@@ -1011,10 +1012,19 @@ void excluir_sensor(sensor_t *lista_sen, setor_t *lista_set)
         return;
     }
 
-    listar_sensores(lista_sen);
+    printf("SENSORES CADASTRADOS NESSE SETOR:\n\n");
+    for (sensores_cadastrados_t *cadastrados = aux->sensores_nesse_setor; cadastrados != NULL; cadastrados = cadastrados->proximo) {
+        for (sensor_t *sensor = lista_sen; sensor != NULL; sensor = sensor->proximo) {
+            if (sensor->id == cadastrados->id) {
+                printf("Sensor de %s --> [ID:%i]\n", sensor->tipo, cadastrados->id);
+            }
+        }
+    }
+
     printf("Digite o ID do sensor que será removido\n");
     printf(":::: ");
     scanf("%i", &id_sensor);
+    getchar();
 
     for (sensores_cadastrados_t *cadastrados = aux->sensores_nesse_setor; cadastrados != NULL; cadastrados = cadastrados->proximo) {
        if (cadastrados->id == id_sensor) {
@@ -1215,7 +1225,7 @@ int opcao_arquivo(void)
 
     printf("Emitir relatório na tela ou em arquivo .csv?\n");
     printf("1.Tela\n");
-    printf("2.Arquivo texto\n");
+    printf("2.Arquivo .csv\n");
     scanf("%i", &opcao);
     getchar();
 
