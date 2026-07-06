@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -1008,7 +1007,6 @@ void excluir_sensor(sensor_t *lista_sen, setor_t *lista_set)
 
     if (aux->sensores_nesse_setor == NULL) {
         printf("Este setor não possui sensores cadastrados.\n");
-        voltar_menu();
         return;
     }
 
